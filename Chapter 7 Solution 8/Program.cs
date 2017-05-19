@@ -31,9 +31,9 @@ namespace Chapter_7_Solution_8
 
                 if (iMin != j)
                 {
-                    temp = arr[j];
-                    arr[j] = arr[iMin];
-                    arr[iMin] = temp;
+                    arr[j] += arr[iMin];
+                    arr[iMin] = arr[j] - arr[iMin];
+                    arr[j] -= arr[iMin]; 
                 }
             }
 
