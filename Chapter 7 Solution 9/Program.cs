@@ -9,9 +9,7 @@ namespace Chapter_7_Solution_9
     class Program
     {
         static void Main(string[] args)
-        {
-            int sum = 0, tempSum;
-            
+        {   
             Console.Write("Enter array length: ");
             int length = Int32.Parse(Console.ReadLine());
 
@@ -22,19 +20,16 @@ namespace Chapter_7_Solution_9
                 Console.Write("Enter {0} element: ", i);
                 arr[i] = Int32.Parse(Console.ReadLine());
             }
+            int maxSumEndingHere = arr[0];
+            int maxSumTotal = arr[0];
 
-            for (int i = 0; i < length - 1; i++)
+            for (int i = 1; i < arr.Length; i++)
             {
-                tempSum = arr[i];
-
-                for (int j = i + 1; j < length; j++)
-                {
-                    tempSum += arr[j];
-                    if (tempSum > sum) sum = tempSum;
-                }
+                maxSumEndingHere = Math.Max(arr[i], maxSumEndingHere + arr[i]);
+                maxSumTotal = Math.Max(maxSumEndingHere, maxSumTotal);
             }
 
-            Console.WriteLine("Result is {0}. ", sum);
+            Console.WriteLine("Result is {0}. ", maxSumTotal);
         }
     }
 }
